@@ -32,7 +32,7 @@ MTD(n,f): A variant of Alpha-Beta that searches with minimal windows and updates
 Simple Neural Networks (NN): A basic neural network architecture for initial strategy development.
 Deep Q-Networks (DQN): Combines Q-learning with deep learning to enable agents to learn optimal strategies through experience, balancing exploration and exploitation.
 
-1.2.2 Optimized Learning Algorithms: (Figure 5.1, 5.2)
+1.2.2 Optimized Learning Algorithms:
 
 Deep Reinforcement Learning: Enhances the learning process by using reward-based feedback to improve the AI’s performance over time.
 Genetic Algorithms: Optimizes neural networks using evolutionary techniques.
