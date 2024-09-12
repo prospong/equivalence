@@ -61,6 +61,8 @@ This file includes codes for automated running an experiment with KAN integratio
 
 These two files includes the codes for the initialized run for the two experiments: one is using minimax algorithms for kane and simple neural network based abel; and the other is using pruning algorithms for kane and DQN algorithms for abel. Both of them haven't integrated with KAN.
 
+L = -1/N * sum_i^N [ y_i log(ŷ_i) + (1 - y_i) log(1 - ŷ_i) ]
+
 ## Appendix C: Integration of KAN 
 
 This appendix details the integration of Kolmogorov-Arnold Networks (KAN) and the Langlands Program within the research project, focusing on analyzing the equivalence between probabilistic and deterministic AI models. The steps include training KAN models, applying Langlands Program concepts, identifying balance points in the equivalence scores, and visualizing the results.
