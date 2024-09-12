@@ -61,7 +61,7 @@ This file includes codes for automated running an experiment with KAN integratio
 
 These two files includes the codes for the initialized run for the two experiments: one is using minimax algorithms for kane and simple neural network based abel; and the other is using pruning algorithms for kane and DQN algorithms for abel. Both of them haven't integrated with KAN.
 
-## Appendix C and D: Integration of KAN and Langlands Program
+## Appendix C: Integration of KAN 
 
 This appendix details the integration of Kolmogorov-Arnold Networks (KAN) and the Langlands Program within the research project, focusing on analyzing the equivalence between probabilistic and deterministic AI models. The steps include training KAN models, applying Langlands Program concepts, identifying balance points in the equivalence scores, and visualizing the results.
 
@@ -69,23 +69,19 @@ This appendix details the integration of Kolmogorov-Arnold Networks (KAN) and th
 
 The KAN model processes input data \( X \) through several layers, including dropout for regularization:
 
-\[
-X_{\text{KAN}} = \text{KAN}(X)
-\]
+\[ X_{\text{KAN}} = \text{KAN}(X) \]
 
 The forward pass is computed as:
 
-\[
-X_{\text{out}} = \text{ReLU}(\text{Dropout}(\text{ReLU}(\text{Dropout}(\text{ReLU}(X_{\text{KAN}})))))
-\]
+\[ X_{\text{out}} = \text{ReLU}(\text{Dropout}(\text{ReLU}(\text{Dropout}(\text{ReLU}(X_{\text{KAN}}))))) \]
 
 The training loss function \( L \) is defined as Binary Cross-Entropy:
 
 \[
-L = -\frac{1}{N} \sum_{i=1}^{N} \left[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \haty_i) \right]
+L = -\frac{1}{N} \sum_{i=1}^{N} \left[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right]
 \]
 
-where \( y_i \) is the true label and \( \haty_i \) is the predicted output. The model updates its parameters \( \theta \) to minimize \( L \), and calculates the equivalence score \( S_{\text{eq}} \):
+where \( y_i \) is the true label and \( \hat{y}_i \) is the predicted output. The model updates its parameters \( \theta \) to minimize \( L \), and calculates the equivalence score \( S_{\text{eq}} \):
 
 \[
 S_{\text{eq}} = 1 - \frac{\| X_{\text{KAN,a}} - X_{\text{KAN,b}} \|}{\| X_{\text{KAN,a}} \| + \| X_{\text{KAN,b}} \|}
@@ -104,6 +100,7 @@ where \( \mu_X \) and \( \sigma_X \) are the mean and standard deviation of the 
 \[
 X_{\text{prob}} = \text{Normalize}(G_{\text{prob}})
 \]
+
 \[
 X_{\text{det}} = \text{Normalize}(G_{\text{det}})
 \]
@@ -135,7 +132,7 @@ These points are highlighted on the equivalence curve for visual analysis. The p
 **Key Visualizations:**
 
 - **Equivalence Curve:** \( S_{\text{eq}}(t) \) plotted against training epochs, with balance points highlighted. Balance points are visualized as red dots on the equivalence curve, and their coordinates \( (t_i, S_{\text{eq}}(t_i)) \) are annotated.
-  
+
 - **Balance Points Plotting:** The balance points are identified and plotted along with the equivalence curve. For each balance point \( (t_i, S_{\text{eq}}(t_i)) \), a red marker is added, and the point's coordinates are displayed next to the marker.
 
 \[
@@ -143,8 +140,7 @@ These points are highlighted on the equivalence curve for visual analysis. The p
 \]
 
 - **Equivalence Data Points:** Visual comparison between \( X_{\text{prob}} \) and \( X_{\text{det}} \).
-  
-- **Symbolic Formula:** The extracted function \( f_{\text{KAN}}(X) \) mapping inputs to outputs.
-  
-- **Weights Visualization:** Heatmaps representing the KAN model's parameters \( \theta \).
 
+- **Symbolic Formula:** The extracted function \( f_{\text{KAN}}(X) \) mapping inputs to outputs.
+
+- **Weights Visualization:** Heatmaps representing the KAN model's parameters \( \theta \).
