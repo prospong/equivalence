@@ -60,3 +60,91 @@ This file includes codes for automated running an experiment with KAN integratio
 4. Minimax_Kane_vs_NN_Abel.ipynb and Pruning_Kane_vs_DQN_Abel.ipynb:
 
 These two files includes the codes for the initialized run for the two experiments: one is using minimax algorithms for kane and simple neural network based abel; and the other is using pruning algorithms for kane and DQN algorithms for abel. Both of them haven't integrated with KAN.
+
+## Appendix C and D: Integration of KAN and Langlands Program
+
+This appendix details the integration of Kolmogorov-Arnold Networks (KAN) and the Langlands Program within the research project, focusing on analyzing the equivalence between probabilistic and deterministic AI models. The steps include training KAN models, applying Langlands Program concepts, identifying balance points in the equivalence scores, and visualizing the results.
+
+### Appendix C: Integration of KAN
+
+The KAN model processes input data \( X \) through several layers, including dropout for regularization:
+
+\[
+X_{\text{KAN}} = \text{KAN}(X)
+\]
+
+The forward pass is computed as:
+
+\[
+X_{\text{out}} = \text{ReLU}(\text{Dropout}(\text{ReLU}(\text{Dropout}(\text{ReLU}(X_{\text{KAN}})))))
+\]
+
+The training loss function \( L \) is defined as Binary Cross-Entropy:
+
+\[
+L = -\frac{1}{N} \sum_{i=1}^{N} \left[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \haty_i) \right]
+\]
+
+where \( y_i \) is the true label and \( \haty_i \) is the predicted output. The model updates its parameters \( \theta \) to minimize \( L \), and calculates the equivalence score \( S_{\text{eq}} \):
+
+\[
+S_{\text{eq}} = 1 - \frac{\| X_{\text{KAN,a}} - X_{\text{KAN,b}} \|}{\| X_{\text{KAN,a}} \| + \| X_{\text{KAN,b}} \|}
+\]
+
+**Data Preparation and Normalization:** The input data \( X \) is normalized to ensure stable training:
+
+\[
+X_{\text{norm}} = \frac{X - \mu_X}{\sigma_X}
+\]
+
+where \( \mu_X \) and \( \sigma_X \) are the mean and standard deviation of the data, respectively.
+
+**Comparing Probabilistic and Deterministic Models:** To compare the AI models, games are played using both probabilistic and deterministic models. The results are aggregated, normalized, and passed through the KAN model:
+
+\[
+X_{\text{prob}} = \text{Normalize}(G_{\text{prob}})
+\]
+\[
+X_{\text{det}} = \text{Normalize}(G_{\text{det}})
+\]
+
+The KAN model outputs equivalence scores, which are then analyzed.
+
+**Visualization and Symbolic Formula Extraction:** The KAN model generates a symbolic formula \( f_{\text{KAN}} \) representing the relationship between input features and outputs:
+
+\[
+f_{\text{KAN}}: X \rightarrow Y
+\]
+
+Where \( X \) represents the normalized input features and \( Y \) is the model's output.
+
+**Equivalence Scores, Balance Points, and Data Points:** The equivalence scores \( S_{\text{eq}} \) are plotted over training epochs \( t \) to monitor the model's performance:
+
+\[
+S_{\text{eq}}(t) = 1 - \frac{\| X_{\text{KAN,a}}(t) - X_{\text{KAN,b}}(t) \|}{\| X_{\text{KAN,a}}(t) \| + \| X_{\text{KAN,b}}(t) \|}
+\]
+
+**Balance Points** are the local maxima in the equivalence scores and are identified using:
+
+\[
+\text{Balance Points} = \left\{ (t_i, S_{\text{eq}}(t_i)) \mid S_{\text{eq}}(t_{i-1}) < S_{\text{eq}}(t_i) > S_{\text{eq}}(t_{i+1}) \right\}
+\]
+
+These points are highlighted on the equivalence curve for visual analysis. The probabilistic and deterministic model outputs \( X_{\text{prob}} \) and \( X_{\text{det}} \) are compared by plotting their respective data points.
+
+**Key Visualizations:**
+
+- **Equivalence Curve:** \( S_{\text{eq}}(t) \) plotted against training epochs, with balance points highlighted. Balance points are visualized as red dots on the equivalence curve, and their coordinates \( (t_i, S_{\text{eq}}(t_i)) \) are annotated.
+  
+- **Balance Points Plotting:** The balance points are identified and plotted along with the equivalence curve. For each balance point \( (t_i, S_{\text{eq}}(t_i)) \), a red marker is added, and the point's coordinates are displayed next to the marker.
+
+\[
+\text{Highlight Balance Points:} \quad \forall \, (t_i, S_{\text{eq}}(t_i)) \in \text{Balance Points}, \quad \text{plot} \, (t_i, S_{\text{eq}}(t_i))
+\]
+
+- **Equivalence Data Points:** Visual comparison between \( X_{\text{prob}} \) and \( X_{\text{det}} \).
+  
+- **Symbolic Formula:** The extracted function \( f_{\text{KAN}}(X) \) mapping inputs to outputs.
+  
+- **Weights Visualization:** Heatmaps representing the KAN model's parameters \( \theta \).
+
