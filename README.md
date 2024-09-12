@@ -51,7 +51,7 @@ Graph Neural Networks (GNNs): Represents the chessboard as a graph and processes
 
 2. Combined_Experiments_With_Kane_Abel.ipynb
 
-This file includes the full design and part of the running results of the experiments with KAN integration. It was a file combined with Ex_1.ipynb,Ex_2-1.ipynb,Ex_2-2.ipynb,Ex_3.ipynb,Ex_4.ipynb,Ex_5.ipynb. For I cannot afford the cost of computational power on deepnote, I only give the results of several experiments. 
+This file includes the full design and part of the running results of the experiments with KAN integration. It was a file combined with Ex_1.ipynb,Ex_2-1.ipynb,Ex_2-2.ipynb,Ex_3.ipynb,Ex_4.ipynb,Ex_5.ipynb. 
 
 3. IntegratedExperimentsAutoRun.ipynb
 
