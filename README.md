@@ -9,11 +9,11 @@ File Specification:
 
 1.1 Kane: Rule-Based Chess AI
 
-1.1.1 Basic Deterministic Algorithms: (Figure 2)
+1.1.1 Basic Deterministic Algorithms:
 
 The design of Kane's basic algorithms includes two main components: Minimax and Alpha-Beta Pruning. The Minimax algorithm evaluates nodes by alternating between maximizing and minimizing players to find the best move. Alpha-Beta Pruning improves this process by introducing alpha and beta values to prune branches, making the search more efficient.
 
-1.1.2 Optimized Pruning Algorithms: (Figure 3.1, 3.2, 3.3)
+1.1.2 Optimized Pruning Algorithms:
 
 Principal Variation Search (PVS): Focuses on the principal variation—the best sequence of moves—by dynamically adjusting the search window based on the expected move sequence.
 Null Move Pruning: Reduces the search depth by assuming the opponent makes a null move, effectively skipping their turn.
@@ -27,7 +27,7 @@ MTD(n,f): A variant of Alpha-Beta that searches with minimal windows and updates
 
 1.2  Abel: Machine Learning-Based Chess AI
 
-1.2.1 Basic Probabilistic Algorithms: (Figure 4)
+1.2.1 Basic Probabilistic Algorithms:
 
 Simple Neural Networks (NN): A basic neural network architecture for initial strategy development.
 Deep Q-Networks (DQN): Combines Q-learning with deep learning to enable agents to learn optimal strategies through experience, balancing exploration and exploitation.
@@ -41,7 +41,7 @@ Self-Play: Allows the AI to discover new strategies by playing against itself.
 Policy Gradient Methods: Uses gradient ascent to optimize policy parameters.
 Actor-Critic Methods: Combines value and policy learning in reinforcement learning.
 
-1.2.3 Other Network Algorithms: (Figure 6.1, 6.2)
+1.2.3 Other Network Algorithms:
 
 Convolutional Neural Networks (CNNs): Processes spatial information on the chessboard.
 Residual Networks (ResNets): Improves training efficiency through deep residual learning.
